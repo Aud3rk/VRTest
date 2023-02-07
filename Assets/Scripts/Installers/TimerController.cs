@@ -46,9 +46,7 @@ public class TimerController : MonoInstaller
 
     private void Update()
     {
-        TimeToStart();
-        if(Input.GetKeyDown(KeyCode.C))
-            InvokeSpawn();
+        TimeToStart(); 
     }
 
     private void TimeToStart()

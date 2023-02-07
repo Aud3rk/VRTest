@@ -4,7 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c0ced7c-9537-4df8-84b2-65e79d6e2493" name="Changes" comment="" />
+    <list default="true" id="1c0ced7c-9537-4df8-84b2-65e79d6e2493" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.VRTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VRTest/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyBomber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyBomber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyMilly.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyMilly.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyRange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyRange.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Installers/TimerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Installers/TimerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShopController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShopController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/0e/0e63c04fb0d372169d559dd73615e89c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/0f/0fac8c8cddcfdce100e244252d775079" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/10/101b3a3584a4790d1dda186afc381348" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/10/10d2e643cf7f4a6fb79c0bc434c137af" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/1e/1eb2138dc51097b05e3583cf0b563461" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/21/2178a8a0fa8308fcfa83c6c3cf779a0c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/45/459090a29f83cbde38d3c9484214b036" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/4c/4c2d52222638c07763e3fef589c0f507" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/60/60266e572d31a0ce7509ab36337142f7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/63/631490f1542094047b78e8a0f81fb8cd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/63/6340a9d53998b50fcb1ec104e39374d2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8d/8dbfbf5eee0a3a25e096fae6a3fad6d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8f/8f7f5430784a5a20a936d692fa9c1019" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/96/9674c7d81e98feec1c0060b36b8f3225" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/9a/9a7580ef8edd0f63e738130992792a26" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/b4/b4f68c903b8d19c89deb02d50b4442ce" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/b6/b6a94db0b1aff34d2510306cf4a36839" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/cf/cf653e9be32feca9ecc213a770598616" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/d1/d1d399dd45e9901c6595ddc5a4677401" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/d2/d2b0f07d60822ab8417fc0698b84e376" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/d3/d34bc69f58f790a3db85e0ddde6e3fbb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/da/da803f230ffb381c45c35e90785ed4b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1300b0aEDbg.dag/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1300b0aEDbg.dag/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/1300b0aEDbg.dag/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/1300b0aEDbg.dag/Assembly-CSharp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/backend_profiler0.traceevents" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/backend_profiler0.traceevents" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/fullprofile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/fullprofile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.log.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.log.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,14 +145,27 @@
       <workItem from="1675677022539" duration="610000" />
       <workItem from="1675716322479" duration="422000" />
       <workItem from="1675746804402" duration="3876000" />
+      <workItem from="1675778111947" duration="1268000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

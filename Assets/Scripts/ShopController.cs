@@ -14,8 +14,6 @@ public class ShopController : MonoBehaviour
     [SerializeField] private int priceGrenade=100;
     [SerializeField] private int pricePistol=500;
 
-    
-
     [Inject]
     public void Construct(PlayerData playerData)
     {
