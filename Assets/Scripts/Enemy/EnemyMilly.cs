@@ -10,7 +10,7 @@ public class EnemyMilly : Enemy
     [SerializeField] private EnemyHB enemyHB;
     private void Start()
     {
-        _damage = 20f;
+        _damage = 100f;
         _maxHealth = 80f;
         _timer = 3f;
         _timeCD = 2f;
@@ -22,6 +22,8 @@ public class EnemyMilly : Enemy
     private void Update()
     {
        Follow();
+       if(Input.GetKeyDown(KeyCode.A))
+           Death();
     }
 
     protected override void Follow()

@@ -26,6 +26,8 @@ public class EnemyBomber : Enemy
     private void Update()
     {
         Follow();
+        if(Input.GetKeyDown(KeyCode.A))
+            Death();
     }
 
     protected override void Follow()

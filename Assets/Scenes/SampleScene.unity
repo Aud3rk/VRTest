@@ -641,7 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eff60187a72bf4dad20cc459b4db7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statisticsController: {fileID: 542404663}
   spawnPosition: {fileID: 1609327951}
   priceGrenade: 100
   pricePistol: 500
@@ -19187,6 +19186,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 6142055805053037221, guid: 62b62d1047a6e0a48aba90368c0d20c4, type: 3}
   pistolPrefab: {fileID: 4202985504683751195, guid: 013bff2c59a3d314eab2430ec1893ae1, type: 3}
   position: {fileID: 364044494}
+  statisticsController: {fileID: 542404663}
+  _timerController: {fileID: 0}
 --- !u!114 &1227662155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19247,9 +19248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6eaeff7511c5e42ae60bdcff709907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statisticsController: {fileID: 542404663}
   buttonOnStart: {fileID: 128620449}
-  enemyList: []
 --- !u!1 &1339771789
 GameObject:
   m_ObjectHideFlags: 0

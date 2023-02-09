@@ -8,35 +8,30 @@ using Zenject;
 public class ShopController : MonoBehaviour
 {
 
-    private PlayerData _playerData;
-    [SerializeField] private StatisticsController statisticsController;
+    private StatisticsController _statisticsController;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private int priceGrenade=100;
     [SerializeField] private int pricePistol=500;
-
     [Inject]
-    public void Construct(PlayerData playerData)
+    public void Construct(StatisticsController statisticsController)
     {
-        _playerData = playerData;
+        _statisticsController = statisticsController;
     }
 
-    public void BuyGrenade(GameObject gun)
+    [ContextMenu("BUy)")]public void BuyGrenade(GameObject gun)
     {
-        if (_playerData.goldCount >= priceGrenade)
+        if (_statisticsController.gold >= priceGrenade)
         {
-            _playerData.goldCount -= priceGrenade;
+            _statisticsController.UpdateGold(-priceGrenade);
             Instantiate<GameObject>(gun, new Vector3(spawnPosition.position.x,spawnPosition.position.y+1,spawnPosition.position.z),Quaternion.identity,null);
-            statisticsController.UpdateStatistic(_playerData.enemyDeadCount,_playerData.goldCount,_playerData.waveNumber);
         }
     }
     public void BuyPistol(GameObject gun)
     {
-        if (_playerData.goldCount >= pricePistol)
+        if (_statisticsController.gold >= pricePistol)
         {
-            _playerData.goldCount -= pricePistol;
+            _statisticsController.UpdateGold(-pricePistol);
             Instantiate<GameObject>(gun, new Vector3(spawnPosition.position.x,spawnPosition.position.y+1,spawnPosition.position.z),Quaternion.identity,null);
-            statisticsController.UpdateStatistic(_playerData.enemyDeadCount,_playerData.goldCount,_playerData.waveNumber);
         }
     }
-    
 }

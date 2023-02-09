@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using HurricaneVR.Framework.Components;
 using UnityEngine;
 using UnityEngine.Lumin;
+using Zenject;
 
 public class Bomb : HVRDamageHandlerBase
 {
@@ -11,16 +12,18 @@ public class Bomb : HVRDamageHandlerBase
     private float _attackDistance = 0.5f;
     private float _damage = 30;
     private PlayerData _player;
+    [Inject] private TimerController _timerController;
 
     public void Initialize(PlayerData player)
     {
         _player = player;
+        _timerController.pauseMenu += Death;
     }
     public override void TakeDamage(float damage)
     {
         _health -= damage;
         if (_health <= 0)
-            Destroy(this.gameObject);
+            Death();
     }
 
     private void Update()
@@ -28,7 +31,16 @@ public class Bomb : HVRDamageHandlerBase
         if (Vector3.Distance(transform.position, _player.transform.position) < _attackDistance)
         {
             _player.TakeDamage(_damage);
-            Destroy(this.gameObject);
+            Death();
         }
     }
+    private void Death()
+    {
+        Destroy(this.gameObject);
+    }
+    private void OnDestroy()
+    {
+        _timerController.pauseMenu -= Death;
+    }
+
 }

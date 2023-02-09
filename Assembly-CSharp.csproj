@@ -110,6 +110,7 @@
      <Folder Include="Assets\HurricaneVR\TechDemo\Assets\SFX" />
      <Folder Include="Assets\HurricaneVR\TechDemo\Assets\Environment" />
      <Folder Include="Assets\HurricaneVR\TechDemo\Assets\Interactables\Props\Dummy" />
+     <Folder Include="Assets\Prefabs\Enemy" />
      <Folder Include="Assets\HurricaneVR\Framework\Materials\BuiltIn" />
      <Folder Include="Assets\HurricaneVR\Framework\Models" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />

@@ -8,6 +8,7 @@ namespace Installers
     {
         [SerializeField] private EnemyHB enemyHB;
         [SerializeField] private GameObject fireballPrefab;
+        private float _followDistantl = 5f;
 
         private void Start()
         {
@@ -21,14 +22,22 @@ namespace Installers
         private void Update()
         {
             Follow();
+            if(Input.GetKeyDown(KeyCode.A))
+                Death();
         }
         protected override void Follow()
         {
-            _agent.destination = new Vector3(_player.gameObject.transform.position.x - 6,
-                _player.gameObject.transform.position.y, _player.gameObject.transform.position.z);
-            if (Vector3.Distance(_player.gameObject.transform.position, _agent.gameObject.transform.position) < _attackDistance)
+            var distant = Vector3.Distance(_player.gameObject.transform.position, _agent.gameObject.transform.position);
+
+            if (distant > _followDistantl)
             {
-                Attack();
+                _agent.destination = _player.gameObject.transform.position;
+            }
+            else 
+            {
+                _agent.destination = transform.position;
+                if (distant < _attackDistance)
+                    Attack();
             }
         }
         protected override void Attack()

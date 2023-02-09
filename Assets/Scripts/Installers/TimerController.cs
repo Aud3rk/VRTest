@@ -6,74 +6,57 @@ using Zenject;
 
 public class TimerController : MonoInstaller
 {
-    [Inject] private PlayerData _playerData;
-    [SerializeField] private StatisticsController _statisticsController;
+    [Inject] private StatisticsController _statisticsController;
     [SerializeField] private GameObject buttonOnStart;
     
-    public static Action spawnNewWave;
-    public static Action pauseMenu;
-
+    public Action spawnNewWave;
+    public Action pauseMenu;
     
-    public List<GameObject> enemyList;
-    
-    private bool _check = true;
-    private float _timerToStart=5f;
+    private List<GameObject> enemyList;
+    public override void InstallBindings()
+    {
+        Container.Bind<TimerController>().FromInstance(this).AsSingle();
+    }
+    private void Start()
+    {
+        enemyList = new List<GameObject>();
+        buttonOnStart.SetActive(false);
+        StartGame();
+    }
     public void InvokeSpawn()
     {
         spawnNewWave.Invoke();
         buttonOnStart.SetActive(false);
     }
-
     public void InvokePause()
     {
         pauseMenu.Invoke();
         buttonOnStart.SetActive(true);
-        _playerData.waveNumber++;
-        _statisticsController.UpdateStatistic(_playerData.enemyDeadCount,_playerData.goldCount,_playerData.waveNumber);
+        _statisticsController.UpdateWaveNumber();
     }
 
-    private void Start()
+    public void StartGame()
     {
-        enemyList = new List<GameObject>();
-        _playerData.goldCount = 200;
-        buttonOnStart.SetActive(false);
+        new WaitForSeconds(5f);
+        InvokeSpawn();
     }
-
-    public override void InstallBindings()
-    {
-        Container.Bind<TimerController>().FromInstance(this).AsSingle();
-    }
-
-    private void Update()
-    {
-        TimeToStart(); 
-    }
-
-    private void TimeToStart()
-    {
-        _timerToStart -= Time.deltaTime;
-        if (_timerToStart <= 0&&_check)
-        {
-            spawnNewWave.Invoke();
-            _check = false;
-        }
-    }
-
     public void DeathEnemy(GameObject enemy)
     {
         enemyList.Remove(enemy);
-        _playerData.goldCount += 40;
-        _playerData.enemyDeadCount++;
-        _statisticsController.UpdateStatistic(_playerData.enemyDeadCount,_playerData.goldCount,_playerData.waveNumber);
+        _statisticsController.UpdateGold(40);
+        _statisticsController.UpdateEnemyDeadCount();
         PauseCheck();
     }
-
     private void PauseCheck()
     {
         if (enemyList.Count == 0)
         {
             InvokePause();
         }
+    }
+    public void AddEnemyToList(GameObject enemy)
+    {
+        enemyList.Add(enemy);
     }
     
 }
