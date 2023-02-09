@@ -7,7 +7,6 @@ using Zenject;
 
 public class ShopController : MonoBehaviour
 {
-
     private StatisticsController _statisticsController;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private int priceGrenade=100;
@@ -18,7 +17,7 @@ public class ShopController : MonoBehaviour
         _statisticsController = statisticsController;
     }
 
-    [ContextMenu("BUy)")]public void BuyGrenade(GameObject gun)
+    public void BuyGrenade(GameObject gun)
     {
         if (_statisticsController.gold >= priceGrenade)
         {

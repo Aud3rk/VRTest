@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerData : MonoBehaviour
 {
-    public float maxHealth = 100;
-
+    private float maxHealth = 100;
     private float _health = 100;
+    
     public void TakeDamage(float damage)
     {
         _health -= damage;
@@ -16,9 +16,9 @@ public class PlayerData : MonoBehaviour
             SceneManager.LoadSceneAsync("Menu");
         }
     }
-
     public void ResetHealth()
     {
         _health = maxHealth;
     }
+    
 }

@@ -17,18 +17,17 @@ public class FireballController : HVRDamageHandlerBase
     [Inject] private TimerController _timerController;
     
     [SerializeField] private float _attackDistance = 0.2f;
+    void Update()
+    {
+        Move();
+        Attack();
+    }
     public void Initialize(PlayerData playerData)
     {
         _playerData = playerData;
         _target = playerData.gameObject.transform.position;
         _timerController.pauseMenu += Death;
     }
-    void Update()
-    {
-        Move();
-        Attack();
-    }
-
     private void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, _target,0.01f);
