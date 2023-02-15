@@ -11,8 +11,7 @@ public class ShopController : MonoBehaviour
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private int priceGrenade=100;
     [SerializeField] private int pricePistol=500;
-    [Inject]
-    public void Construct(StatisticsController statisticsController)
+    [Inject] public void Construct(StatisticsController statisticsController)
     {
         _statisticsController = statisticsController;
     }

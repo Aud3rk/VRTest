@@ -10,14 +10,15 @@ namespace Installers
         [SerializeField] private GameObject fireballPrefab;
         private float _followDistantl = 5f;
 
-        private void Start()
+        private void Awake()
         {
-            _maxHealth = 50;
+            
+            maxHealth = 50f;
+            currentHealth = maxHealth;
             _agent = GetComponent<NavMeshAgent>();
-            _attackDistance = 7f;
-            _health = _maxHealth;
+            attackDistance = 7f;
             _enemyHB = enemyHB;
-            _timeCD = 3f;
+            timeCD = 3f;
         }
         private void Update()
         {
@@ -27,29 +28,29 @@ namespace Installers
         }
         protected override void Follow()
         {
-            var distant = Vector3.Distance(_player.gameObject.transform.position, _agent.gameObject.transform.position);
+            var distant = Vector3.Distance(_playerData.gameObject.transform.position, _agent.gameObject.transform.position);
 
             if (distant > _followDistantl)
             {
-                _agent.destination = _player.gameObject.transform.position;
+                _agent.destination = _playerData.gameObject.transform.position;
             }
             else 
             {
                 _agent.destination = transform.position;
-                if (distant < _attackDistance)
+                if (distant < attackDistance)
                     Attack();
             }
         }
         protected override void Attack()
         {
-            _timer -= Time.deltaTime;
-            if (_timer <= 0)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
                 var ball =Instantiate(fireballPrefab,
                     new Vector3(transform.position.x, transform.position.y+2, transform.position.z),
                     Quaternion.identity);
-                ball.GetComponent<FireballController>().Initialize(_player);
-                _timer = _timeCD;
+                ball.GetComponent<FireballController>().Initialize(_playerData, _timerController);
+                timer = timeCD;
             }
         }
     }

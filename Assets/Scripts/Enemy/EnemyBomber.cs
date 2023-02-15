@@ -9,18 +9,16 @@ public class EnemyBomber : Enemy
 {
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private EnemyHB enemyHB;
-    private List<GameObject> _bombList;
     
     private void Start()
     {
-        _maxHealth = 75;
-        _timer = 3f;
+        maxHealth = 75f;
+        currentHealth = maxHealth;
+        timer = 3f;
         _agent = GetComponent<NavMeshAgent>();
-        _attackDistance = 7f;
-        _health = _maxHealth;
+        attackDistance = 7f;
         _enemyHB = enemyHB;
-        _timeCD = 2f;
-        _bombList = new List<GameObject>();
+        timeCD = 2f;
     }
 
     private void Update()
@@ -32,35 +30,31 @@ public class EnemyBomber : Enemy
 
     protected override void Follow()
     {
-        _agent.destination = new Vector3(_player.gameObject.transform.position.x +2,
-            _player.gameObject.transform.position.y, _player.gameObject.transform.position.z);
-        if (Vector3.Distance(_player.gameObject.transform.position, _agent.gameObject.transform.position) < _attackDistance)
-        {
+        _agent.destination = new Vector3(_playerData.gameObject.transform.position.x +2,
+            _playerData.gameObject.transform.position.y, _playerData.gameObject.transform.position.z);
+        if(PlayerInADistance())
             Attack();
-        }
+    }
+
+    private bool PlayerInADistance()
+    {
+        return (Vector3.Distance(_playerData.gameObject.transform.position, _agent.gameObject.transform.position) < attackDistance);
     }
 
     protected override void Attack()
     {
-        _timer -= Time.deltaTime;
-        if (_timer <= 0)
+        timer -= Time.deltaTime;
+        if (timer <= 0)
         {
-            _timer = _timeCD;
-            var bomb =Instantiate(bombPrefab,
-                new Vector3(transform.position.x, transform.position.y, transform.position.z),
-                Quaternion.identity);
-            bomb.GetComponent<Bomb>().Initialize(_player);
-            _bombList.Add(bomb);
-            
+            timer = timeCD;
+            var bomb =Instantiate(bombPrefab, transform.position, Quaternion.identity);
+            Debug.Log("some");
+            bomb.GetComponent<Bomb>().Initialize(_playerData,_timerController);
         }
     }
 
     protected override void Death()
     {
-        foreach (var bomb in _bombList)
-        {
-            Destroy(bomb);
-        }
         _timerController.DeathEnemy(this.gameObject);
         Destroy(this.gameObject);
     }

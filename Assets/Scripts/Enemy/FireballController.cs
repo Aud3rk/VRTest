@@ -11,21 +11,20 @@ using Vector3 = UnityEngine.Vector3;
 public class FireballController : HVRDamageHandlerBase
 {
     private PlayerData _playerData;
+    private TimerController _timerController;
     private Vector3 _target;
     private float _damage=30;
-
-    [Inject] private TimerController _timerController;
-    
     [SerializeField] private float _attackDistance = 0.2f;
     void Update()
     {
         Move();
         Attack();
     }
-    public void Initialize(PlayerData playerData)
+    public void Initialize(PlayerData playerData, TimerController timerController)
     {
         _playerData = playerData;
         _target = playerData.gameObject.transform.position;
+        _timerController = timerController;
         _timerController.pauseMenu += Death;
     }
     private void Move()

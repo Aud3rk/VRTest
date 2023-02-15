@@ -8,28 +8,26 @@ namespace Installers
     {
         protected TimerController _timerController;
         protected NavMeshAgent _agent;
-        protected PlayerData _player;
+        protected PlayerData _playerData;
         protected EnemyHB _enemyHB;
-        
-        protected float _maxHealth;
-        protected float _health;
-        protected float _attackDistance=2f;
-        protected float _timer;
-        protected float _timeCD;
-        protected float _damage;
 
-        public void Initialize(PlayerData player, TimerController timerController)
+        protected float currentHealth;
+        protected float maxHealth;
+        protected float attackDistance=2f;
+        protected float timer;
+        protected float timeCD;
+        protected float damage;
+
+        public void Initialize(PlayerData playerData, TimerController timerController)
         {
-            _player = player;
             _timerController = timerController;
+            _playerData = playerData;
         }
-        
-
         public override void TakeDamage(float damage)
         {
-            _health -= damage;
-            _enemyHB.UpdateHealthBar(_health/_maxHealth);
-            if (_health <= 0)
+            currentHealth -= damage;
+            _enemyHB.UpdateHealthBar(currentHealth/maxHealth);
+            if (currentHealth <= 0)
             {
                 Death();
             }

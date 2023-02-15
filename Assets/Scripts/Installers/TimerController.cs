@@ -17,11 +17,18 @@ public class TimerController : MonoInstaller
     {
         Container.Bind<TimerController>().FromInstance(this).AsSingle();
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.C)) 
+            InvokeSpawn();
+    }
+
     private void Start()
     {
         enemyList = new List<GameObject>();
         buttonOnStart.SetActive(false);
-        StartGame();
+        StartCoroutine(StartGame());
     }
     public void InvokeSpawn()
     {
@@ -35,9 +42,9 @@ public class TimerController : MonoInstaller
         _statisticsController.UpdateWaveNumber();
     }
 
-    public void StartGame()
+    public IEnumerator StartGame()
     {
-        new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f);
         InvokeSpawn();
     }
     public void DeathEnemy(GameObject enemy)

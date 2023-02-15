@@ -8,14 +8,14 @@ public class EnemyMilly : Enemy
 {
     
     [SerializeField] private EnemyHB enemyHB;
-    private void Start()
+    private void Awake()
     {
-        _damage = 100f;
-        _maxHealth = 80f;
-        _timer = 3f;
-        _timeCD = 2f;
+        maxHealth = 80f;
+        currentHealth = maxHealth;
+        damage = 20f;
+        timer = 3f;
+        timeCD = 2f;
         _agent = GetComponent<NavMeshAgent>();
-        _health = _maxHealth;
         _enemyHB = enemyHB;
     }
 
@@ -28,21 +28,23 @@ public class EnemyMilly : Enemy
 
     protected override void Follow()
     {
-        _agent.destination = _player.gameObject.transform.position;
-        if (Vector3.Distance(_player.gameObject.transform.position, _agent.gameObject.transform.position) < _attackDistance)
-        {
+        _agent.destination = _playerData.gameObject.transform.position;
+        if(PlayerInADistance())
             Attack();
-        }
-        
+    }
+
+    private bool PlayerInADistance()
+    {
+        return (Vector3.Distance(_playerData.gameObject.transform.position, _agent.gameObject.transform.position) < attackDistance);
     }
 
     protected override void Attack()
     {
-        _timer -= Time.deltaTime;
-        if (_timer <= 0)
+        timer -= Time.deltaTime;
+        if (timer <= 0)
         {
-            _timer = _timeCD;
-            _player.TakeDamage(_damage);
+            timer = timeCD;
+            _playerData.TakeDamage(damage);
         }
     }
 }
