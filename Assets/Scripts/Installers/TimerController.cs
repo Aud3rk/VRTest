@@ -20,7 +20,7 @@ public class TimerController : MonoInstaller
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.C)) 
+        if (Input.GetKeyDown(KeyCode.C)) 
             InvokeSpawn();
     }
 

@@ -21,12 +21,12 @@ public class EnemyMilly : Enemy
 
     private void Update()
     {
-       Follow();
+        Move();
        if(Input.GetKeyDown(KeyCode.A))
            Death();
     }
 
-    protected override void Follow()
+    protected override void Move()
     {
         _agent.destination = _playerData.gameObject.transform.position;
         if(PlayerInADistance())

@@ -32,14 +32,13 @@ namespace Installers
                 Death();
             }
         }
-    
         protected virtual void Death()
         {
             _timerController.DeathEnemy(this.gameObject);
             Destroy(this.gameObject);
         }
 
-        protected abstract void Follow();
+        protected abstract void Move();
 
         protected abstract void Attack();
 

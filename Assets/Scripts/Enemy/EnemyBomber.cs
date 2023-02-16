@@ -9,6 +9,8 @@ public class EnemyBomber : Enemy
 {
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private EnemyHB enemyHB;
+    private float speed = 3f;
+    
     
     private void Start()
     {
@@ -23,23 +25,28 @@ public class EnemyBomber : Enemy
 
     private void Update()
     {
-        Follow();
+        Move();
         if(Input.GetKeyDown(KeyCode.A))
             Death();
     }
 
-    protected override void Follow()
+    protected override void Move()
     {
-        _agent.destination = new Vector3(_playerData.gameObject.transform.position.x +2,
-            _playerData.gameObject.transform.position.y, _playerData.gameObject.transform.position.z);
-        if(PlayerInADistance())
-            Attack();
+        transform.Translate(0,0,speed* Time.deltaTime);
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            float currentDistance = hit.distance;
+            if (currentDistance<2)
+            {
+                float angle = Random.Range(-110, 110);
+                transform.Rotate(0, angle, 0);
+            }
+        }
+        Attack();
     }
-
-    private bool PlayerInADistance()
-    {
-        return (Vector3.Distance(_playerData.gameObject.transform.position, _agent.gameObject.transform.position) < attackDistance);
-    }
+    
 
     protected override void Attack()
     {

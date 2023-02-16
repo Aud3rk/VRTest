@@ -11,14 +11,14 @@ public class EnemySpawner : MonoBehaviour
     [Inject] private TimerController _timerController;
     [Inject] private PlayerData _playerData;
     [Inject] private StatisticsController _statisticsController;
-
     private void Awake()
     {
         _timerController.spawnNewWave += Spawn;
     }
     private void Spawn()
     {
-        for(int i=0;i<_statisticsController.waveNumber;i++)
+        int enemyCount = _statisticsController.waveNumber;
+        for(int i=0;i<enemyCount;i++)
         {
             GameObject enemy=Instantiate(enemyPrefab, this.transform);
             enemy.GetComponent<Enemy>().Initialize(_playerData,_timerController);
